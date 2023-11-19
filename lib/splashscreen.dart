@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app_assignment_ui/introductoryscreen1.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Future.delayed(Duration(seconds: 12), () {
-    //   Navigator.pushReplacement(
-    //       context, MaterialPageRoute(builder: (context) => ***()));
-    // });
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const IntroductoryScreen1()));
+    });
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -23,7 +24,18 @@ class SplashScreen extends StatelessWidget {
                   width: 100,
                   fit: BoxFit.contain,
                 ),
-                Text("UpTodo", style: TextStyle(fontSize: 20, color: Colors.white),)
+                const Text(
+                  "UpTodo",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.blue.shade400),
+                  strokeWidth: 4,
+                )
               ],
             ),
           ),
